@@ -9,7 +9,7 @@ export default function Manager() {
   const [pass, setPass] = useState("password");
 
   const getPasswords=async()=>{
-    let req=await fetch("http://localhost:3000/");
+    let req=await fetch("https://passop-backend-s2hd.onrender.com");
     let passwords=await req.json();
     console.log(passwords);
     setPasswordArray(passwords);
@@ -26,7 +26,7 @@ export default function Manager() {
     }else{
       const updatedArray = [...passwordArray, newEntry];
       setPasswordArray(updatedArray);
-      await fetch("http://localhost:3000/",{method:"POST",headers:{"Content-Type":"application/JSON"},
+      await fetch("https://passop-backend-s2hd.onrender.com/",{method:"POST",headers:{"Content-Type":"application/JSON"},
       body:JSON.stringify({...form,id:uuidv4()})});
       setForm({ site: "", username: "", password: "" });
     }
@@ -56,7 +56,7 @@ export default function Manager() {
   const deletePassword = async(id) => {
     const updated = passwordArray.filter((item) => item.id !== id);
     setPasswordArray(updated);
-    await fetch("http://localhost:3000/",{method:"DELETE",headers:{"Content-Type":"application/JSON"},
+    await fetch("https://passop-backend-s2hd.onrender.com/",{method:"DELETE",headers:{"Content-Type":"application/JSON"},
     body:JSON.stringify({id})});
   };
 
@@ -64,7 +64,7 @@ export default function Manager() {
     const item = passwordArray.find((i) => i.id === id);
     setForm(item);
     setPasswordArray(passwordArray.filter((i) => i.id !== id));
-    await fetch("http://localhost:3000/",{method:"DELETE",headers:{"Content-Type":"application/JSON"},
+    await fetch("https://passop-backend-s2hd.onrender.com/",{method:"DELETE",headers:{"Content-Type":"application/JSON"},
     body:JSON.stringify({id})});
   };
 
