@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="text-sm sm:text-lg text-center">
         Created With
         <i className="fa-solid fa-heart text-red-600 mx-1"></i>
-        by <span className="font-semibold">Sachin </span>
+        by <span className="font-semibold">Sachin</span>
       </div>
     </footer>
   );
